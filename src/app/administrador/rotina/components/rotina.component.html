@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">              
+      
+      <!--NavBar-->
+      <cea-navbar></cea-navbar>
+      <!-- conteudo -->      
+
+      <div class="conteudo col-md-12" style="min-height: 580px; padding-bottom: 60px">
+        
+        <section class="col-md-12 margin-top-section">
+          <h4>Rotina</h4>
+        </section>
+
+        <div class="container">
+          <section>
+          <div class="col-md-11 center-block pull-md-none margin-top-corpo margin-bottom-corpo">            
+            <form>
+              <div class="form-row align-items-center">                
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInput">Matrícula</label>
+                  <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Matrícula">
+                </div>              
+                <div class="col-auto">
+                  <button (click)="buscarRotina()" class="btn btn-primary mb-2">Pesquisar</button>
+                </div>
+              </div>
+            </form>
+          </div> 
+          </section>
+          <section>
+            <div>
+
+              <p-table #dt1 [value]="rotinas" dataKey="id"
+              [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+              [paginator]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 35px;">#</th>
+                        <th>Matrícula</th>
+                        <th>Nome</th>
+                        <th>Ação</th>
+                        <th>Data</th>
+                        <th>Tipo de Execução</th>
+                        <th>Executante</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rotinaLog>
+                    <tr>
+                      <td>{{rotinaLog.id}}</td>
+                      <td>{{rotinaLog.matricula}}</td>
+                      <td>{{rotinaLog.nome}}</td>
+                      <td>{{rotinaLog.acao}}</td>
+                      <td>{{rotinaLog.data}}</td>
+                      <td>{{rotinaLog.tipoExecucao}}</td>
+                      <td>{{rotinaLog.executante}}</td>                       
+                    </tr>
+                </ng-template>
+            </p-table>
+
+            </div>
+          </section>
+
+        </div>        
+         
+      </div>
+  
+    <!-- Rodape -->
+    <cea-footer></cea-footer>
+  
+    </div>
+  </div>
+  <!-- /.container -->
+

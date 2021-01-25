@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">              
+      
+      <!--NavBar-->
+      <cea-navbar></cea-navbar>
+      <!-- conteudo -->      
+
+      <div class="conteudo col-md-12" style="min-height: 580px; padding-bottom: 60px">
+        
+        <section class="col-md-12 margin-top-section">
+          <h4>Afastamento</h4>
+        </section>
+
+        <div class="container">
+          <section>
+          <div class="col-md-11 center-block pull-md-none margin-top-corpo margin-bottom-corpo">            
+            <form>
+              <div class="form-row align-items-center">                 
+                <div class="col-auto">
+                  <label class="sr-only" for="matricula-empregado-afastado">Matrícula</label>
+                  <input type="text" class="form-control mb-2" id="matricula-empregado-afastado" placeholder="Matrícula">
+                </div>              
+                <div class="col-auto">
+                  <button (click)="buscarAfastamento()" class="btn btn-primary mb-2">Pesquisar</button>
+                </div>
+              </div>
+            </form>
+          </div> 
+          </section>
+          <section>
+            <div>
+
+              <p-table #dt1 [value]="afastamentos" dataKey="id"
+              [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+              [paginator]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 35px;">#</th>
+                        <th>Matrícula</th>
+                        <th>Nome</th>
+                        <th>Início</th>
+                        <th>Fim</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-afastamento>
+                    <tr>
+                      <td>{{afastamento.id.id}}</td>
+                      <td>{{afastamento.id.matricula}}</td>
+                      <td>{{afastamento.nome}}</td>
+                      <td>{{afastamento.id.inicio}}</td>
+                      <td>{{afastamento.fim}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+            </div>
+          </section>
+
+        </div>       
+         
+      </div>
+  
+    <!-- Rodape -->
+    <cea-footer></cea-footer>
+  
+    </div>
+  </div>
+  <!-- /.container -->
+

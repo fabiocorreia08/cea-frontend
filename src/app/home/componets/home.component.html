@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="container"> 
+    <div class="row">      
+      <!--NavBar-->
+      <cea-navbar></cea-navbar>
+      <!-- conteudo -->
+      <div class="conteudo col-md-12" style="min-height: 580px; padding-bottom: 60px">
+        
+        <section class="col-md-12 margin-top-section">
+          <h4>Home</h4>
+        </section>
+
+        <div class="container">
+          <div class="col-md-11 center-block pull-md-none margin-top-corpo">
+            <!-- Corpo -->
+            <!-- <p>{{message}}</p>-->            
+            <p>O Sistema verifica se o empregado está de férias e, dependendo da situação do empregado, bloqueia ou desbloqueia sua conta de rede no AD (Active Directory).</p>
+            <p>Essa rotina é executada automaticamente às 5:00 horas da manhâ e pode, a qualquer momento, ser executada através do botão "Iniciar".</p>
+          </div> 
+        </div>
+
+        <hr class="my-4  ">
+        <div class="container">
+          <div class="col-md-12 center-block pull-md-none margin-top-corpo"> 
+            
+             <div class="group-gap">
+              <h5 class="mb-3">Rotina</h5>
+            </div>
+      
+              <button class="btn btn-primary mb-2" (click)="iniciarRotina()">Iniciar</button>            
+          </div>
+        </div>  
+
+        <hr class="my-4">
+
+        <div class="container">
+          <div class="col-md-3 center-block pull-md-none margin-top-corpo">
+            
+             <div class="group-gap">
+              <h5 class="mb-3">Rotina Ativada</h5>
+            </div>
+            
+            <div class="form-group" >              
+              <label class="control-label col-md-4" *ngFor="let statusRotina of statusRotinas">
+                 <input type="radio" [(ngModel)]="statusRotinaModel" [name]="statusRotina.name" [value]="statusRotina.value" required>
+                 {{ statusRotina.label }}
+              </label>
+            </div>  
+
+            <button class="btn btn-primary mb-2" (click)="gravarStatus()">Salvar</button>            
+          </div>
+        </div>    
+                 
+      </div>      
+  
+    <!-- Rodape -->
+    <cea-footer></cea-footer>
+  
+    </div>
+  </div>
+  <!-- /.container -->
